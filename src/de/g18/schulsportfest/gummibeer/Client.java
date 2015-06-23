@@ -1,6 +1,6 @@
-package de.g18.schulsportfest;
+package de.g18.schulsportfest.gummibeer;
 
-import de.g18.schulsportfest.Controller.ParticipantsController;
+import de.g18.schulsportfest.gummibeer.Controller.ParticipantsController;
 
 public class Client {
 

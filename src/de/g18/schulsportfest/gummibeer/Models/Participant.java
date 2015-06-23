@@ -1,4 +1,4 @@
-package de.g18.schulsportfest.Models;
+package de.g18.schulsportfest.gummibeer.Models;
 
 import com.sun.xml.internal.ws.util.StringUtils;
 

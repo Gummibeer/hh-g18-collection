@@ -1,6 +1,6 @@
-package de.g18.schulsportfest.Controller;
+package de.g18.schulsportfest.gummibeer.Controller;
 
-import de.g18.schulsportfest.Models.Participant;
+import de.g18.schulsportfest.gummibeer.Models.Participant;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
