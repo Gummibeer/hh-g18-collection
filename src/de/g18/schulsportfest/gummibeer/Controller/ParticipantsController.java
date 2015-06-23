@@ -14,8 +14,7 @@ public class ParticipantsController {
     private static final String ANSI_CYAN = "\u001B[36m";
 
     private BufferedReader reader;
-    private static Map<String, Participant> participants = new HashMap<>();
-    private List<Participant> sortedParticipants;
+    private static List<Participant> participants = new ArrayList<>();
     String certificateParticipants = "";
     String winnerCertificateParticipants = "";
 
@@ -61,7 +60,7 @@ public class ParticipantsController {
 
             participant.calcCertificates();
 
-            participants.put(name, participant);
+            participants.add(participant);
             System.out.println(
                     participant.getName() + " -> " +
                             "L: " + participant.getRun() + " " +
@@ -85,7 +84,7 @@ public class ParticipantsController {
         System.out.println("");
         System.out.println(ANSI_CYAN + "########## Ranking ##########" + ANSI_RESET);
         int position = 1;
-        for( Participant p : sortedParticipants ) {
+        for( Participant p : participants ) {
             String color = "";
             if(position <= 3) {
                 color = ANSI_YELLOW;
@@ -99,8 +98,7 @@ public class ParticipantsController {
 
     private void sortParticipants()
     {
-        sortedParticipants = new ArrayList<>(participants.values());
-        Collections.sort(sortedParticipants, new Comparator<Participant>() {
+        Collections.sort(participants, new Comparator<Participant>() {
             public int compare(Participant p1, Participant p2) {
                 Integer score1 = p1.getScore();
                 Integer score2 = p2.getScore();
@@ -111,7 +109,7 @@ public class ParticipantsController {
 
     private void collectCertificates()
     {
-        for( Participant p : participants.values()) {
+        for( Participant p : participants) {
             if(p.hasWinnerCertificate()) {
                 if(!winnerCertificateParticipants.equals("")) {
                     winnerCertificateParticipants += ", ";
