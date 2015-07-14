@@ -2,12 +2,13 @@ package de.g18.sendefrequenzzuordnung.gummibeer.Models;
 
 import de.g18.sendefrequenzzuordnung.gummibeer.Controller.AppController;
 
-import java.util.HashSet;
+import java.util.Map;
 
 public class Transmitter {
 
-    public HashSet<Integer> possibleChannels = AppController.possibleChannels;
-    public int channel = 0;
+    public Map<Integer, Integer> possibleChannels = AppController.possibleChannels;
+    public int channel;
+    public int frequency;
     public Circle area;
 
     public Transmitter(float x, float y, float r) {
