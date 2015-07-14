@@ -2,6 +2,8 @@ package de.g18.sendefrequenzzuordnung.gummibeer.Controller;
 
 import de.g18.sendefrequenzzuordnung.gummibeer.Models.Transmitter;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.List;
@@ -15,9 +17,18 @@ public class AppController {
     public void run()
     {
         init();
-        // TODO: start ImportController
-        loopTransmitters();
-        // TODO: create Output-File
+        // TODO: get filename from console
+        try {
+            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+            System.out.print("Dateiname: ");
+            String filename = reader.readLine();
+            // TODO: start ImportController
+            ImportController importer = new ImportController(filename);
+            loopTransmitters();
+            // TODO: create Output-File
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private void init()
